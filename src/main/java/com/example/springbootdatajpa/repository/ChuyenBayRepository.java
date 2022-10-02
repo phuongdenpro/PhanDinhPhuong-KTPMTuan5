@@ -12,4 +12,10 @@ import java.util.List;
 public interface ChuyenBayRepository extends JpaRepository<ChuyenBay, String> {
     @Query("select c from ChuyenBay c where c.gaDen = :gaDen")
     List<ChuyenBay> getChuyenBayDen(@Param("gaDen") String gaDen);
+
+    @Query("select c from ChuyenBay c where c.doDai > 8000 AND c.doDai < 10000")
+    List<ChuyenBay> getChuyenBayTu8000den10000();
+
+    @Query("select c from ChuyenBay c where c.gaDi = 'SGN' AND c.gaDen = 'BMV'")
+    List<ChuyenBay> getChuyenBayTuSaiGondenBuonMeThuoc();
 }

@@ -3,6 +3,7 @@ package com.example.springbootdatajpa.controller;
 import com.example.springbootdatajpa.entity.ChuyenBay;
 import com.example.springbootdatajpa.repository.ChuyenBayRepository;
 //import com.example.springbootdatajpa.service.ChuyenBayService;
+import com.example.springbootdatajpa.service.ChuyenBayService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,12 +17,28 @@ import java.util.Map;
 @RequestMapping("/chuyen-bay")
 public class ChuyenBayController {
     @Autowired
-//    private ChuyenBayService chuyenBayService;
-    private ChuyenBayRepository chuyenBayRepository;
+    private ChuyenBayService chuyenBayService;
+//    private ChuyenBayRepository chuyenBayRepository;
+    //Câu 1
     @GetMapping("/chuyen-bay-toi-dad")
     public List<ChuyenBay> toDalat() {
-        List<ChuyenBay> listChuyenBay = (List<ChuyenBay>) chuyenBayRepository.getChuyenBayDen("DAD");
+        List<ChuyenBay> listChuyenBay = (List<ChuyenBay>) chuyenBayService.getChuyenBayDen("DAD");
         System.out.println(listChuyenBay);
         return listChuyenBay;
     }
+    //Câu 4
+    @GetMapping("/chuyen-bay-tu-8000-10000km")
+    public List<ChuyenBay> chuyenbaytu8000den10000() {
+        List<ChuyenBay> listChuyenBay = (List<ChuyenBay>) chuyenBayService.getChuyenBayTu8000den10000();
+        System.out.println(listChuyenBay);
+        return listChuyenBay;
+    }
+    //Câu 5
+    @GetMapping("/chuyen-bay-tu-SaiGon-BuonMeThuoc")
+    public List<ChuyenBay> chuyenbaytuSaiGondenBuonMeThuoc() {
+        List<ChuyenBay> listChuyenBay = (List<ChuyenBay>) chuyenBayService.getChuyenBayTuSaiGondenBuonMeThuoc();
+        System.out.println(listChuyenBay);
+        return listChuyenBay;
+    }
+
     }

@@ -10,8 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.Map;
 import java.util.List;
-
-@Repository
 public interface NhanVienRepository extends JpaRepository<NhanVien,String> {
-
+    @Query("select c from NhanVien c where c.luong < 10000")
+    List<NhanVien> findNhanVienLuongDuoi10000();
 }
