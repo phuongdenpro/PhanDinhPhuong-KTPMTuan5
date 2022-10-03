@@ -30,5 +30,11 @@ public class ChuyenBayServiceImpl implements ChuyenBayService{
         return chuyenBayList;
     }
 
+    @Override
+    public int tinhChuyenBayByGaDiSaiGon() {
+        List<ChuyenBay> chuyenBayList = chuyenBayRepository.tinhChuyenBayTuSaiGon();
+        return chuyenBayList.size();
+    }
+
 
 }

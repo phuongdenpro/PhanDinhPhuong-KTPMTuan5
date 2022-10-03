@@ -18,4 +18,7 @@ public interface ChuyenBayRepository extends JpaRepository<ChuyenBay, String> {
 
     @Query("select c from ChuyenBay c where c.gaDi = 'SGN' AND c.gaDen = 'BMV'")
     List<ChuyenBay> getChuyenBayTuSaiGondenBuonMeThuoc();
+
+    @Query("select c from ChuyenBay c where c.gaDi = 'SGN'")
+    List<ChuyenBay> tinhChuyenBayTuSaiGon();
 }

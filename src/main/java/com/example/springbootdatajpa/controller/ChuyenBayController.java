@@ -41,4 +41,10 @@ public class ChuyenBayController {
         return listChuyenBay;
     }
 
+    //Câu 6
+    @GetMapping("/so-chuyen-bay-tu-SaiGon")
+    public String tinhSoChuyenBayTuSaiGon(){
+        return "Số chuyến bay xuất phát từ Sài Gòn: " + chuyenBayService.tinhChuyenBayByGaDiSaiGon();
+    }
+
     }
